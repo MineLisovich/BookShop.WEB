@@ -13,6 +13,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BookShop.WEB.DataBase.Entities;
+using BookShop.WEB.DataBase.Repositories.Abstract;
+using BookShop.WEB.DataBase.Repositories.EF;
+using BookShop.WEB.DataBase;
 
 
 namespace BookShop.WEB
@@ -26,15 +30,33 @@ namespace BookShop.WEB
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
+        
         public void ConfigureServices(IServiceCollection services)
         {
             // подключаем конфиг из appsettings.json
             Configuration.Bind("Project", new Config());
+
+            // Подключаем нужный функционал
+            services.AddTransient<IBindingRepository, EFBindingRepository>();
+            services.AddTransient<IBooksRepository, EFBooksRepository>();
+            services.AddTransient<IDeliveryRepository, EFDeliveryRepository>();
+            services.AddTransient<IFormatRepository, EFFormatRepository>();
+            services.AddTransient<IGanresRepository, EFGanresRepository>();
+            services.AddTransient<IImporterRepository, EFImporterRepository>();
+            services.AddTransient<IOurStoresRepository,EFOurStoresRepository>();
+            services.AddTransient<IPickupRepository,EFPickupRepository>();
+            services.AddTransient<IPublisherRepository,EFPublisherRepository>();
+            services.AddTransient<IShoppingCartRepository,EFShoppingCartRepository>();
+            services.AddTransient<ITheAuthorsRepository, EFTheAuthorsRepository>();
+            services.AddTransient<DataManager>();
+
+            //Подключение БД
+            services.AddDbContext<Context>(x => x.UseSqlServer(Config.ConnectionString));
+
             services.AddControllersWithViews();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())

@@ -9,8 +9,6 @@
     <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Areas\User\Controllers\" />
     <Folder Include="Areas\User\Views\Shared\" />
-    <Folder Include="DataBase\Repositories\Abstract\" />
-    <Folder Include="DataBase\Repositories\EF\" />
   </ItemGroup>
 
   <ItemGroup>

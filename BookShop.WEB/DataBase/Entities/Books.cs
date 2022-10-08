@@ -45,7 +45,7 @@ namespace BookShop.WEB.DataBase.Entities
         
         public Importer Importer { get; set; }//Связь с таблицей "Импортёр"
         [Required]
-        public int Importid { get; set; }// FK ключ
+        public int Importerid { get; set; }// FK ключ
         [Required(ErrorMessage ="Введите имя картинки")]
         public string TitleNameImage { get; set; }
         [Required(ErrorMessage ="Введите дату добавления на сайт")]
