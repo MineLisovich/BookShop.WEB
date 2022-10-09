@@ -1,14 +1,34 @@
-﻿<!-- registration form -->
+﻿@model RegistrationViewModel
+
+
+<div class="page-heading contact-heading header-text">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-content">
+                    <h4>Регистрация</h4>
+                    <h2>Создайте свой аккаунт</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- registration form -->
 
 <div class="container">
     <div class="RegForm">
-        <form>
-            <input type="text" placeholder="Ваше Имя" />
-            <input type="text" placeholder="E-Mail" />
-            <input type="password" placeholder="Пароль" />
+        <form asp-controller="Account" asp-action="Registration" method="post">
+            <input asp-for="Name" type="text" placeholder="Логин" />
+            <span asp-validation-for="Name"></span>
+            <input asp-for="Email" type="text" placeholder="E-Mail" />
+            <span asp-validation-for="Email"></span>
+            <input asp-for="Password" type="password" placeholder="Пароль" />
+            <span asp-validation-for="Password"></span>
+            <p>В пароле должно быть:<br>1)Хотя бы одна цифра<br>2)Хотя бы одна заглавная буква<br>3)Минимальная длина пароля 8 символов</p>
             <button type="submit" id="form-submit" class="filled-button">Зарегистрироваться</button>
         </form>
-        <p>Уже есть аккаунт? <a href="#">Войти</a></p>
+        <p>Уже есть аккаунт? <a asp-area="" asp-controller="Account" asp-action="Login">Войти</a></p>
     </div>
 </div>
 <!--registration form -->

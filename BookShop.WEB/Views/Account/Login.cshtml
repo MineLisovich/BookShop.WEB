@@ -1,13 +1,28 @@
-﻿   <!-- login form -->
-
+﻿@model LoginViewModel  
+ 
+<div class="page-heading contact-heading header-text">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-content">
+                    <h4>Авторизация</h4>
+                    <h2>Войдите в свой аккаунт</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- login form -->
 <div class="container">
     <div class="LoginForm">
-        <form>
-            <input type="text" placeholder="E-Mail" />
-            <input type="password" placeholder="Пароль" />
+        <form asp-area="" asp-controller="Account" asp-action="Login" method="post" asp-route-returnUrl="@ViewBag.returnUrl">
+            <input asp-for="UserName" type="text" placeholder="Логин" />
+            <span asp-validation-for="UserName"></span>
+            <input asp-for="Password" type="password" placeholder="Пароль" />
+            <span asp-validation-for="Password"></span><br>
             <button type="submit" id="form-submit" class="filled-button">Вход</button>
         </form>
-        <p>Нет ещё аккаунта? <a href="#">Так создайте его!</a></p>
+        <p>Нет ещё аккаунта? <a asp-area="" asp-controller="Account" asp-action="Registration">Так создайте его!</a></p>
         <br>
         <p>Забыли пароль? <a href="#">Восстановить его можно тут</a></p>
     </div>
