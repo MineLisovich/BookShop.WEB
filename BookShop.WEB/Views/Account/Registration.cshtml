@@ -20,11 +20,11 @@
     <div class="RegForm">
         <form asp-controller="Account" asp-action="Registration" method="post">
             <input asp-for="Name" type="text" placeholder="Логин" />
-            <span asp-validation-for="Name"></span>
+            <span style="color:red" asp-validation-for="Name"></span>
             <input asp-for="Email" type="text" placeholder="E-Mail" />
-            <span asp-validation-for="Email"></span>
+            <span style="color:red" asp-validation-for="Email"></span>
             <input asp-for="Password" type="password" placeholder="Пароль" />
-            <span asp-validation-for="Password"></span>
+            <span style="color:red" asp-validation-for="Password"></span>
             <p>В пароле должно быть:<br>1)Хотя бы одна цифра<br>2)Хотя бы одна заглавная буква<br>3)Минимальная длина пароля 8 символов</p>
             <button type="submit" id="form-submit" class="filled-button">Зарегистрироваться</button>
         </form>

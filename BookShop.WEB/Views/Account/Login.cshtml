@@ -17,9 +17,9 @@
     <div class="LoginForm">
         <form asp-area="" asp-controller="Account" asp-action="Login" method="post" asp-route-returnUrl="@ViewBag.returnUrl">
             <input asp-for="UserName" type="text" placeholder="Логин" />
-            <span asp-validation-for="UserName"></span>
+            <span style="color:red" asp-validation-for="UserName"></span>
             <input asp-for="Password" type="password" placeholder="Пароль" />
-            <span asp-validation-for="Password"></span><br>
+            <span style="color:red" asp-validation-for="Password"></span><br>
             <button type="submit" id="form-submit" class="filled-button">Вход</button>
         </form>
         <p>Нет ещё аккаунта? <a asp-area="" asp-controller="Account" asp-action="Registration">Так создайте его!</a></p>
