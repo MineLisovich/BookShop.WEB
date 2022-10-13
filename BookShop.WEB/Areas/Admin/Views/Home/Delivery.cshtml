@@ -1,0 +1,54 @@
+﻿@model BookShop.WEB.Models.DeliveryViewModel
+
+<div class="page-heading contact-heading header-text">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-content">
+                    <h4>Таблица</h4>
+                    <h2>Доставка</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="products">
+    <div class="container">
+        <div class="serchDiv">
+            <form>
+                <input name="serch" class="serchInput" type="text" placeholder="Поиск" />
+            </form>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <td><b>ID:</b></td>
+                    <td><b>Пользователь:</b></td>
+                    <td><b>Наименование книги:</b></td>
+                    <td><b>Цена:</b></td>
+                    <td><b>Адрес доставки:</b></td>
+                    <td><b>Дата доставки:</b></td>
+                    <td><b>Номер телефона клиента:</b></td>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Delivery.Count() > 0)
+                {
+                    @foreach (var item in Model.Delivery)
+                    {
+                        <tr class="tableDev">
+                            <td>@item.Id</td>
+                            <td>@item.User.UserName</td>
+                            <td>@item.NameBook</td>
+                            <td>@item.Price</td>
+                            <td>@item.AdressDelivery</td>
+                            <td>@item.DataDlivery</td>
+                            <td>@item.PhoneUser</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

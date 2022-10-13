@@ -10,4 +10,30 @@
         </div>
     </div>
 </div>
-admin area
+
+<div class="container">
+    <div class="">
+        <h3>Редактирование таблиц:</h3>
+        <ol>
+            <li>Таблица <a asp-area="admin" asp-controller="Home" asp-action="Books">Книги</a></li>
+            <li>Таблица <a asp-area="admin" asp-controller="Home" asp-action="Authors">Авторы</a></li>
+            <li>Таблица <a asp-area="admin" asp-controller="Home" asp-action="Ganres">Жанры</a></li>
+            <li>Таблица <a asp-area="admin" asp-controller="Home" asp-action="Publisher">Издатели</a></li>
+            <li>Таблица <a asp-area="admin" asp-controller="Home" asp-action="Importer">Импортёры</a></li>
+            <li>Таблица <a asp-area="admin" asp-controller="Home" asp-action="Binding">Переплёт книги</a></li>
+            <li>Таблица <a asp-area="admin" asp-controller="Home" asp-action="Format">Формат книги</a></li>
+            <li>Таблица <a asp-area="admin" asp-controller="Home" asp-action="OurStores">Наши магазины</a></li>
+            
+        </ol>
+        <h3>Управление пользователями:</h3>
+        <ol>
+            <li>Таблица <a asp-area="admin" asp-controller="Home" asp-action="Users">Пользователи</a></li>
+            <li><a asp-area="admin" asp-controller="Home" asp-action="ShoppingCart">Корзина Пользователей</a></li>
+        </ol>
+        <h3>Заказы:</h3>
+        <ol>
+            <li><a asp-area="admin" asp-controller="Home" asp-action="Pickup">Самовывоз</a></li>
+            <li><a asp-area="admin" asp-controller="Home" asp-action="Delivery">Доставка</a></li>
+        </ol>
+    </div>
+</div>

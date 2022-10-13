@@ -1,0 +1,52 @@
+﻿@model BookShop.WEB.Models.BindingViewModel
+
+<div class="page-heading contact-heading header-text">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-content">
+                    <h4>Таблица</h4>
+                    <h2>Переплёт книги</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="products">
+    <div class="container">
+        <div class="AddNewItem">
+            <a href="">Добавить новый переплёт</a>
+        </div>
+        <div class="serchDiv">
+            <form>
+                <input name="serch" class="serchInput" type="text" placeholder="Поиск" />
+            </form>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <td><b>ID:</b></td>
+                    <td><b>Наименование:</b></td>
+                    <td><b>Управление</b></td>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Bindings.Count() > 0)
+                {
+                    @foreach (var item in Model.Bindings)
+                    {
+                        <tr class="tableDev">
+                            <td>@item.Id</td>
+                            <td>@item.NameBinding</td>
+                            <td>
+                                <a>Изменить</a>
+                                <a>Удалить</a>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

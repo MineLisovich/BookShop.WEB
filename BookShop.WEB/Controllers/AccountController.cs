@@ -89,7 +89,7 @@ namespace BookShop.WEB.Controllers
                    Microsoft.AspNetCore.Identity.SignInResult resultByName = await signInManager.PasswordSignInAsync(userByName.UserName, model.Password, model.RememberMe, false);
                     if (resultByName.Succeeded)
                     {
-                        return RedirectToAction("Index", "Home");
+                        return Redirect(returnUrl ?? "/Home/Index");
                     }
                     ModelState.AddModelError(nameof(LoginViewModel.UserName), "Неверный логин или пароль");
                 }

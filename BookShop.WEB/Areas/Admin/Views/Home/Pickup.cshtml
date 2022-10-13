@@ -1,0 +1,52 @@
+﻿@model BookShop.WEB.Models.PickupViewModel
+
+<div class="page-heading contact-heading header-text">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-content">
+                    <h4>Таблица</h4>
+                    <h2>Самовывоз</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="products">
+    <div class="container">
+        <div class="serchDiv">
+            <form>
+                <input name="serch" class="serchInput" type="text" placeholder="Поиск" />
+            </form>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <td><b>ID:</b></td>
+                    <td><b>Пользователь:</b></td>
+                    <td><b>Наименование книги:</b></td>
+                    <td><b>Цена:</b></td>
+                    <td><b>Адрес выдачи:</b></td>
+                    <td><b>Дата выдачи заказа:</b></td>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Pickup.Count() > 0)
+                {
+                    @foreach (var item in Model.Pickup)
+                    {
+                        <tr class="tableDev">
+                            <td>@item.Id</td>
+                            <td>@item.User.UserName</td>
+                            <td>@item.NameBook</td>
+                            <td>@item.Price</td>
+                            <td>@item.OurStores.AdressStore</td>
+                            <td>@item.DateIssueOrder</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

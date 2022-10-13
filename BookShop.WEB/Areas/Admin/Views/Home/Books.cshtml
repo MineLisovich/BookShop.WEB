@@ -1,0 +1,70 @@
+﻿@model BookShop.WEB.Models.BooksViewModel
+
+<div class="page-heading contact-heading header-text">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-content">
+                    <h4>Таблица</h4>
+                    <h2>Книги</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="products">
+    <div class="container">
+        <div class="AddNewItem">
+            <a href="">Добавить новую книгу</a>
+        </div>
+        
+<div class="serchDiv">
+    <form>
+                <input name="serch" class="serchInput" type="text" placeholder="Поиск" />
+    </form>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="filters-content">
+            <div class="row grid">
+                <!--  -->
+                        <div class="col-lg-4 col-md-4 all des">
+                        @if (Model.Books.Count() > 0)
+                        {
+                            @foreach (var item in Model.Books)
+                            {
+                                    <div class="product-item">
+                                        <a href="#"><img src="~/images/bookTitle/@item.TitleNameImage" alt=""></a>
+                                        <div class="down-content">
+                                            <a href="#"><h4>@item.NameBook</h4></a>
+                                            <p>Автор: @item.TheAuthors.FullName</p>
+                                            <p>Жанр: @item.Ganres.NameGanre</p>
+                                            <p>Описание книги: @item.BookDescription</p>
+                                            <p>Дата издания: @item.YearPublishing</p>
+                                            <p>Количество страниц: @item.NumberPages</p>
+                                            <p>Издатель: @item.Publisher.ShortNamePublisher</p>
+                                            <p>Цена: @item.Price</p>
+                                            <p>Переплёт: @item.Binding.NameBinding</p>
+                                            <p>Формат: @item.Format.NameFormat</p>
+                                            <p>Возрастное ограничение: @item.AgeLimit</p>
+                                            <p>Изготовитель: @item.Publisher.FullNamePublisher</p>
+                                            <p>Импортёр: @item.Importer.FullNameImporter</p>
+                                            <p>Имя картинки: @item.TitleNameImage</p>
+                                            <p>Дата добавления на сайт: @item.DateAddSite</p>
+                                            <a href="">Изменить</a>
+                                            <a href="">Удалить</a>
+                                        </div>
+                                    </div>
+                            }
+                        }
+                </div> 
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
