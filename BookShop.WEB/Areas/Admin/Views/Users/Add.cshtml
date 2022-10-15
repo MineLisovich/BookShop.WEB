@@ -1,0 +1,34 @@
+﻿@model BookShop.WEB.Models.AddUserViewModel
+
+<div class="page-heading contact-heading header-text">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-content">
+                    <h4>Редактирование таблицы</h4>
+                    <h2>Пользователи</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="edditForm">
+        <form asp-controller="Users" asp-action="Add" method="post">
+            <input asp-for="Name" type="text" placeholder="Введите Логин" />
+            <span style="color:red" asp-validation-for="Name"></span>
+            <input asp-for="Email" type="text" placeholder="Введите Email" />
+            <span style="color:red" asp-validation-for="Email"></span>
+            <input asp-for="Password" type="text" placeholder="Введите Пароль" />
+            <span style="color:red" asp-validation-for="Password"></span>
+            <p>В пароле должно быть:<br>1)Хотя бы одна цифра<br>2)Хотя бы одна заглавная буква<br>3)Минимальная длина пароля 8 символов</p>
+            <label>Введите id Роли (666 - admin, 333-user)</label>
+            <input asp-for="RoleID" type="text" placeholder="666" />
+            <span style="color:red" asp-validation-for="RoleID"></span>
+            <label>Введите Наименование  Роли (ADMIN, USER)</label>
+            <input asp-for="Role" type="text" placeholder="ADMIN" />
+            <span style="color:red" asp-validation-for="Role"></span>
+            <button type="submit" id="form-submit" class="filled-button">Принять</button>
+        </form>
+    </div>
+</div>

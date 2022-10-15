@@ -1,0 +1,24 @@
+﻿@model BookShop.WEB.DataBase.Entities.Binding
+
+<div class="page-heading contact-heading header-text">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-content">
+                    <h4>Редактирование таблицы</h4>
+                    <h2>Переплёт книги</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="edditForm">
+        <form asp-controller="Bindings" asp-action="AEBinding" method="post">
+            <input asp-for="NameBinding" type="text" placeholder="Введите наименование переплёта (Пример: Твёрдый переплёт)" />
+            <span style="color:red" asp-validation-for="NameBinding"></span>
+   
+            <button type="submit" id="form-submit" class="filled-button">Принять</button>
+        </form>
+    </div>
+</div>

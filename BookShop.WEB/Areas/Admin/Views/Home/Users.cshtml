@@ -16,7 +16,7 @@
 <div class="products">
     <div class="container">
         <div class="AddNewItem">
-            <a href="">Добавить нового пользователя</a>
+            <a asp-area="admin" asp-controller="Users" asp-action="Add">Добавить нового пользователя</a>
         </div>
         <div class="serchDiv">
             <form>
@@ -36,17 +36,17 @@
             <tbody>
                 @if (Model.user.Count() > 0)
                 {
-                    @foreach (var obj in Model.user)
+                    @foreach (var item in Model.user)
                     {
-                        <form asp-area="Admin"  method="post">
+                        <form asp-area="admin" asp-controller="Users" asp-action="Delete" asp-route-id="@item.Id" method="post">
                         <tr>
-                            <td>@obj.Id</td>
-                            <td>@obj.UserName</td>
-                            <td>@obj.Email</td>
+                            <td>@item.Id</td>
+                            <td>@item.UserName</td>
+                            <td>@item.Email</td>
 
                             <td>
-                                <a>Изменить</a>
-                                <button type="submit" value="Удалить">Удалить</button>
+                                <a asp-area="admin" asp-controller="Users" asp-action="Edit" asp-route-id="@item.Id">Изменить</a>
+                                <button type="submit">Удалить</button>
 
                             </td>
                         </tr>

@@ -16,7 +16,7 @@
 <div class="products">
     <div class="container">
         <div class="AddNewItem">
-            <a href="">Добавить новый магазин</a>
+            <a asp-area="admin" asp-controller="OurStores" asp-action="AEOurStores">Добавить новый магазин</a>
         </div>
         <div class="serchDiv">
             <form>
@@ -40,8 +40,8 @@
                             <td>@item.Id</td>
                             <td>@item.AdressStore</td>
                             <td>
-                                <a>Изменить</a>
-                                <a>Удалить</a>
+                                <a asp-area="admin" asp-controller="OurStores" asp-action="AEOurStores" asp-route-id="@item.Id">Изменить</a>
+                                <a asp-area="admin" asp-controller="OurStores" asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
                             </td>
                         </tr>
                     }

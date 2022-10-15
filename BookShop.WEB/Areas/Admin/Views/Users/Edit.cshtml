@@ -1,0 +1,25 @@
+﻿@model BookShop.WEB.Models.EditUserViewModel
+
+<div class="page-heading contact-heading header-text">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-content">
+                    <h4>Редактирование таблицы</h4>
+                    <h2>Пользователи</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="edditForm">
+        <form asp-controller="Users" asp-action="Edit" method="post">
+            <input asp-for="Name" type="text" placeholder="Введите Логин" />
+            <span style="color:red" asp-validation-for="Name"></span>
+            <input asp-for="Email" type="text" placeholder="Введите Email" />
+            <span style="color:red" asp-validation-for="Email"></span>
+            <button type="submit" id="form-submit" class="filled-button">Принять</button>
+        </form>
+    </div>
+</div>

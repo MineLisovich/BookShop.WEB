@@ -1,0 +1,27 @@
+﻿@model BookShop.WEB.DataBase.Entities.Publisher
+
+<div class="page-heading contact-heading header-text">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-content">
+                    <h4>Редактирование таблицы</h4>
+                    <h2>Издатели</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="edditForm">
+        <form asp-controller="Publishers" asp-action="AEPublisher" method="post">
+            <input asp-for="ShortNamePublisher" type="text" placeholder="Введите краткое имя (Пример: Капуста)" />
+            <span style="color:red" asp-validation-for="ShortNamePublisher"></span>
+            <input asp-for="FullNamePublisher" type="text" placeholder="Введите полное наименование (Пример: ОАО <<Капуста>>)" />
+            <span style="color:red" asp-validation-for="FullNamePublisher"></span>
+            <input asp-for="AddressPublisher" type="text" placeholder="Введите адрес (Пример: РФ, г.Москва, ул. Личная 12)" />
+            <span style="color:red" asp-validation-for="AddressPublisher"></span>
+            <button type="submit" id="form-submit" class="filled-button">Принять</button>
+        </form>
+    </div>
+</div>

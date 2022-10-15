@@ -1,0 +1,87 @@
+﻿@model BookShop.WEB.DataBase.Entities.Books
+
+<div class="page-heading contact-heading header-text">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-content">
+                    <h4>Редактирование таблицы</h4>
+                    <h2>Книги</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="edditForm">
+        <form asp-controller="Books" asp-action="AEBooks" method="post" enctype="multipart/form-data">
+            <input asp-for="NameBook" type="text" placeholder="Введите наименование книги" />
+            <span style="color:red" asp-validation-for="NameBook"></span>
+            <select asp-for="TheAuthors.FullName">
+               
+                @foreach (SelectListItem option in ViewBag.AuthorsList)
+                {
+                    <option value="@option.Value">@option.Text</option>
+
+                }
+            </select>
+            <select asp-for="Ganres.NameGanre">
+                <option disabled>Выберите жанр</option>
+                @foreach (SelectListItem option in ViewBag.GanresList)
+                {
+                    <option value="@option.Value">@option.Text</option>
+
+                }
+            </select>
+            <textarea asp-for="BookDescription" placeholder="Введите описание книги"></textarea>
+            <span style="color:red" asp-validation-for="BookDescription"></span>
+            <label>Дата Издания</label>
+            <input type="date" value="today" asp-for="YearPublishing"/>
+            <label>Введите количество страниц в книге</label>
+            <input asp-for="NumberPages" type="number"/>
+            <span style="color:red" asp-validation-for="NumberPages"></span>
+            <select asp-for="Publisher.ShortNamePublisher">
+                <option disabled>Выберите Издателя</option>
+                @foreach (SelectListItem option in ViewBag.PublisherList)
+                {
+                    <option value="@option.Value">@option.Text</option>
+
+                }
+            </select>
+            <label>Введите цену</label>
+            <input asp-for="Price" type="number" />
+            <select asp-for="Binding.NameBinding">
+                <option disabled>Выберите переплёт</option>
+                @foreach (SelectListItem option in ViewBag.BindingList)
+                {
+                    <option value="@option.Value">@option.Text</option>
+
+                }
+            </select>
+            <select asp-for="Format.NameFormat">
+                <option disabled>Выберите формат книги</option>
+                @foreach (SelectListItem option in ViewBag.FormatList)
+                {
+                    <option value="@option.Value">@option.Text</option>
+
+                }
+            </select>
+            <label>Введите возрастное ограничение</label>
+            <input asp-for="AgeLimit" type="number" />
+            <label>Введите вес книги</label>
+            <input asp-for="BookWeight" type="number" />
+             <select asp-for="Importer.FullNameImporter">
+                <option disabled>Выберите импортёра</option>
+                @foreach (SelectListItem option in ViewBag.ImporterList)
+                {
+                    <option value="@option.Value">@option.Text</option>
+
+                }
+            </select>
+            <label class="control-label">Выберите файл постера</label>
+            <input name="TitleImage" id="TitleImage" type="file" class="form-control" accept=".jpg" />
+             <img src="~/images/bookTitle/@Model.TitleNameImage" />
+            <button type="submit" id="form-submit" class="filled-button">Принять</button>
+         </form>
+    </div>   
+ </div>

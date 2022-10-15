@@ -1,0 +1,23 @@
+﻿@model BookShop.WEB.DataBase.Entities.TheAuthors
+
+<div class="page-heading contact-heading header-text">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-content">
+                    <h4>Редактирование таблицы</h4>
+                    <h2>Авторы</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="edditForm">
+        <form asp-controller="Authors" asp-action="AEAuthors" method="post">
+            <input asp-for="FullName" type="text" placeholder="Введите ФИО автора" />
+            <span style="color:red" asp-validation-for="FullName"></span>
+            <button type="submit" id="form-submit" class="filled-button">Принять</button>
+         </form>
+    </div>   
+ </div>

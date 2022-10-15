@@ -16,7 +16,7 @@
 <div class="products">
     <div class="container">
         <div class="AddNewItem">
-            <a href="">Добавить нового автора</a>
+            <a asp-area="admin" asp-controller="Authors" asp-action="AEAuthors">Добавить нового автора</a>
         </div>
         <div class="serchDiv">
             <form>
@@ -40,8 +40,8 @@
                             <td>@item.Id</td>
                             <td>@item.FullName</td>
                             <td>
-                                <a>Изменить</a>
-                                <a>Удалить</a>
+                                <a asp-area="admin" asp-controller="Authors" asp-action="AEAuthors" asp-route-id="@item.Id">Изменить</a>
+                                <a asp-area="admin" asp-controller="Authors" asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
                             </td>
                         </tr>
                     }

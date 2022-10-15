@@ -1235,6 +1235,7 @@ footer .inner-content p a {
 	border-collapse: collapse;
 }
 
+
 	.table th {
 		font-weight: bold;
 		padding: 5px;
@@ -1254,3 +1255,79 @@ footer .inner-content p a {
 	.table tr td:last-child, .table tr th:last-child {
 		border-right: none;
 	}
+
+.edditForm {
+	margin-top: 10px;
+}
+
+	.edditForm input {
+		font-size: 16px;
+		width: 50%;
+		height: 44px;
+		display: inline-block;
+		line-height: 42px;
+		border: 1px solid rgb(170, 170, 170);
+		border-radius: 5px;
+		text-align: center;
+		margin-top: 10px;
+	}
+
+		.edditForm input:focus {
+			box-shadow: none;
+			border: 1px solid rgb(0, 0, 0);
+		}
+	.edditForm select {
+		font-size: 16px;
+		width: 50%;
+		height: 44px;
+		display: inline-block;
+		line-height: 42px;
+		border: 1px solid rgb(170, 170, 170);
+		border-radius: 5px;
+		text-align: center;
+		margin-top: 10px;
+	}
+		.edditForm select:focus {
+			box-shadow: none;
+			border: 1px solid rgb(0, 0, 0);
+		}
+	.edditForm textarea {
+		font-size: 16px;
+		width: 50%;
+		height: 300px;
+		display: inline-block;
+		line-height: 42px;
+		border: 1px solid rgb(170, 170, 170);
+		border-radius: 5px;
+		text-align: center;
+		margin-top: 10px;
+	}
+
+		.edditForm textarea:focus {
+			box-shadow: none;
+			border: 1px solid rgb(0, 0, 0);
+		}
+	.edditForm label {
+		display:block;
+		margin-bottom: -10px;
+	}
+	.edditForm button.filled-button {
+		margin-top: 10px;
+		background-color: #f33f3f;
+		color: #fff;
+		font-size: 14px;
+		text-transform: capitalize;
+		font-weight: 300;
+		padding: 10px 20px;
+		border-radius: 5px;
+		display: block;
+		transition: all 0.3s;
+		border: none;
+		outline: none;
+		cursor: pointer;
+	}
+
+		.edditForm button.filled-button:hover {
+			background-color: #121212;
+			color: #fff;
+		}

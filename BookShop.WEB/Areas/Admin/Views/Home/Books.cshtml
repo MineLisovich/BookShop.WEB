@@ -16,7 +16,7 @@
 <div class="products">
     <div class="container">
         <div class="AddNewItem">
-            <a href="">Добавить новую книгу</a>
+            <a asp-area="admin" asp-controller="Books" asp-action="AEBooks">Добавить новую книгу</a>
         </div>
         
 <div class="serchDiv">
@@ -45,16 +45,17 @@
                                             <p>Дата издания: @item.YearPublishing</p>
                                             <p>Количество страниц: @item.NumberPages</p>
                                             <p>Издатель: @item.Publisher.ShortNamePublisher</p>
-                                            <p>Цена: @item.Price</p>
+                                            <p>Цена: @item.Price руб.</p>
                                             <p>Переплёт: @item.Binding.NameBinding</p>
                                             <p>Формат: @item.Format.NameFormat</p>
-                                            <p>Возрастное ограничение: @item.AgeLimit</p>
-                                            <p>Изготовитель: @item.Publisher.FullNamePublisher</p>
-                                            <p>Импортёр: @item.Importer.FullNameImporter</p>
+                                            <p>Возрастное ограничение: @item.AgeLimit +</p>
+                                            <p>Вес книги: @item.BookWeight г.</p>
+                                            <p>Изготовитель: @item.Publisher.FullNamePublisher @item.Publisher.AddressPublisher</p>
+                                            <p>Импортёр: @item.Importer.FullNameImporter @item.Importer.AddressImpoter</p>
                                             <p>Имя картинки: @item.TitleNameImage</p>
                                             <p>Дата добавления на сайт: @item.DateAddSite</p>
-                                            <a href="">Изменить</a>
-                                            <a href="">Удалить</a>
+                                            <a asp-area="admin" asp-controller="Books" asp-action="AEBooks" asp-route-id="@item.Id">Изменить</a>
+                                            <a asp-area="admin" asp-controller="Books" asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
                                         </div>
                                     </div>
                             }
