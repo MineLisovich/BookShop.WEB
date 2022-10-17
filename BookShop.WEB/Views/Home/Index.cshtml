@@ -1,4 +1,5 @@
-﻿ <!-- Page Content -->
+﻿@model BookShop.WEB.Models.BooksViewModel 
+<!-- Page Content -->
 <!-- Banner Starts Here -->
 <div class="banner header-text">
     <div class="owl-banner owl-carousel">
@@ -30,83 +31,29 @@
             <div class="col-md-12">
                 <div class="section-heading">
                     <h2>Новые книги</h2>
-                    <a href="products.html">Посмотреть весь каталог <i class="fa fa-angle-right"></i></a>
+                    <a asp-area="" asp-controller="Home" asp-action="Products">Посмотреть весь каталог <i class="fa fa-angle-right"></i></a>
                 </div>
             </div>
-            <!--  -->
-            <div class="col-md-4">
-                <div class="product-item">
-                    <a href="#"><img src="assets/images/Обложка_книги__Наваждения_,_Макс_Фрай.jpg" alt=""></a>
-                    <div class="down-content">
-                        <a href="#"><h4>Название книни</h4></a>
-                        <h6>23 руб</h6>
-                        <p>Краткое описание о чём книга</p>
+            @if (Model.Books.Count()>0)
+            {
+                @foreach (var item in Model.Books.OrderByDescending(d=>d.DateAddSite).Take(3))
+                {
+                    <!--  -->
+                    <div class="col-md-4">
+                        <div class="product-item">
+                            <a asp-controller="Home" asp-action="ProductPage" asp-route-id="@item.Id"><img src="~/images/bookTitle/@item.TitleNameImage" alt=""></a>
+                            <div class="down-content">
+                                <a asp-controller="Home" asp-action="ProductPage" asp-route-id="@item.Id"><h4>@item.NameBook</h4></a>
+                                <h6>@item.Price руб.</h6>
+                                <p>@item.BookDescription</p>
 
-                        <span><a href="">В корзину</a></span>
+                                <span><a href="">В корзину</a></span>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <!--  -->
-            <div class="col-md-4">
-                <div class="product-item">
-                    <a href="#"><img src="assets/images/Обложка_книги__Наваждения_,_Макс_Фрай.jpg" alt=""></a>
-                    <div class="down-content">
-                        <a href="#"><h4>Название книни</h4></a>
-                        <h6>23 руб</h6>
-                        <p>Краткое описание о чём книга</p>
-                        <span><a href="">В корзину</a></span>
-                    </div>
-                </div>
-            </div>
-            <!--  -->
-            <div class="col-md-4">
-                <div class="product-item">
-                    <a href="#"><img src="assets/images/Обложка_книги__Наваждения_,_Макс_Фрай.jpg" alt=""></a>
-                    <div class="down-content">
-                        <a href="#"><h4>Название книни</h4></a>
-                        <h6>23 руб</h6>
-                        <p>Краткое описание о чём книга</p>
-                        <span><a href="">В корзину</a></span>
-                    </div>
-                </div>
-            </div>
-            <!--  -->
-            <div class="col-md-4">
-                <div class="product-item">
-                    <a href="#"><img src="assets/images/Обложка_книги__Наваждения_,_Макс_Фрай.jpg" alt=""></a>
-                    <div class="down-content">
-                        <a href="#"><h4>Название книни</h4></a>
-                        <h6>23 руб</h6>
-                        <p>Краткое описание о чём книга</p>
-                        <span><a href="">В корзину</a></span>
-                    </div>
-                </div>
-            </div>
-            <!--  -->
-            <div class="col-md-4">
-                <div class="product-item">
-                    <a href="#"><img src="assets/images/Обложка_книги__Наваждения_,_Макс_Фрай.jpg" alt=""></a>
-                    <div class="down-content">
-                        <a href="#"><h4>Название книни</h4></a>
-                        <h6>23 руб</h6>
-                        <p>Краткое описание о чём книга</p>
-                        <span><a href="">В корзину</a></span>
-                    </div>
-                </div>
-            </div>
-            <!--  -->
-            <div class="col-md-4">
-                <div class="product-item">
-                    <a href="#"><img src="assets/images/Обложка_книги__Наваждения_,_Макс_Фрай.jpg" alt=""></a>
-                    <div class="down-content">
-                        <a href="#"><h4>Название книни</h4></a>
-                        <h6>23 руб</h6>
-                        <p>Краткое описание о чём книга</p>
-                        <span><a href="">В корзину</a></span>
-                    </div>
-                </div>
-            </div>
-            <!--  -->
+                    <!--  -->
+                }
+            }   
         </div>
     </div>
 </div>
@@ -118,79 +65,33 @@
             <div class="col-md-12">
                 <div class="section-heading">
                     <h2>Популярные книги</h2>
-                    <a href="products.html">Посмотреть весь каталог <i class="fa fa-angle-right"></i></a>
+                    <a asp-area="" asp-controller="Home" asp-action="Products">Посмотреть весь каталог <i class="fa fa-angle-right"></i></a>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="product-item">
-                    <a href="#"><img src="assets/images/Обложка_книги__Наваждения_,_Макс_Фрай.jpg" alt=""></a>
-                    <div class="down-content">
-                        <a href="#"><h4>Название книни</h4></a>
-                        <h6>23 руб</h6>
-                        <p>Краткое описание о чём книга</p>
+            @if (Model.Books.Count()>0)
+            {
+                @foreach(var item in Model.Books.OrderBy(p=>p.Price).Take(6))
+                {
+                    <!--  -->
+                    <div class="col-md-4">
+                        <div class="product-item">
+                            <a asp-controller="Home" asp-action="ProductPage" asp-route-id="@item.Id"><img src="~/images/bookTitle/@item.TitleNameImage" alt=""></a>
+                            <div class="down-content">
+                                <a asp-controller="Home" asp-action="ProductPage" asp-route-id="@item.Id"><h4>@item.NameBook</h4></a>
+                                <h6>@item.Price руб.</h6>
+                                <p>@item.BookDescription</p>
 
-                        <span><a href="">В корзину</a></span>
+                                <span><a href="">В корзину</a></span>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="product-item">
-                    <a href="#"><img src="assets/images/Обложка_книги__Наваждения_,_Макс_Фрай.jpg" alt=""></a>
-                    <div class="down-content">
-                        <a href="#"><h4>Название книни</h4></a>
-                        <h6>23 руб</h6>
-                        <p>Краткое описание о чём книга</p>
-                        <span><a href="">В корзину</a></span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="product-item">
-                    <a href="#"><img src="assets/images/Обложка_книги__Наваждения_,_Макс_Фрай.jpg" alt=""></a>
-                    <div class="down-content">
-                        <a href="#"><h4>Название книни</h4></a>
-                        <h6>23 руб</h6>
-                        <p>Краткое описание о чём книга</p>
-                        <span><a href="">В корзину</a></span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="product-item">
-                    <a href="#"><img src="assets/images/Обложка_книги__Наваждения_,_Макс_Фрай.jpg" alt=""></a>
-                    <div class="down-content">
-                        <a href="#"><h4>Название книни</h4></a>
-                        <h6>23 руб</h6>
-                        <p>Краткое описание о чём книга</p>
+                    <!--  -->
+                }
+            }
+            
 
-                        <span><a href="">В корзину</a></span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="product-item">
-                    <a href="#"><img src="assets/images/Обложка_книги__Наваждения_,_Макс_Фрай.jpg" alt=""></a>
-                    <div class="down-content">
-                        <a href="#"><h4>Название книни</h4></a>
-                        <h6>23 руб</h6>
-                        <p>Краткое описание о чём книга</p>
-
-                        <span><a href="">В корзину</a></span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="product-item">
-                    <a href="#"><img src="assets/images/Обложка_книги__Наваждения_,_Макс_Фрай.jpg" alt=""></a>
-                    <div class="down-content">
-                        <a href="#"><h4>Название книни</h4></a>
-                        <h6>23 руб</h6>
-                        <p>Краткое описание о чём книга</p>
-
-                        <span><a href="">В корзину</a></span>
-                    </div>
-                </div>
-            </div>
+           
+        
         </div>
     </div>
 </div>

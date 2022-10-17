@@ -1,0 +1,52 @@
+﻿@model BookShop.WEB.DataBase.Entities.Books
+<!-- Page Content -->
+<div class="page-heading products-heading header-text">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-content">
+                    <h4>Каталог</h4>
+                    <h2>А ну добавь в корзину!</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--end Page Content -->
+<!-- Area singlpage -->
+<div class="products">
+    <div class="container">
+        <div class="singlproductArea">
+            <div class="mainInfoArea">
+                <div class="imageBook">
+                    <img src="~/images/bookTitle/@Model.TitleNameImage" alt="">
+                </div>
+                <div class="infoBook">
+                    <div class="hederInfo">
+                        <h1>@Model.NameBook</h1>
+                        <p>@Model.TheAuthors.FullName, @Model.YearPublishing</p>
+                    </div>
+                    <h1>@Model.Price руб</h1>
+                    <button type="submit" id="form-submit" class="filled-button">Добавить в корзину!</button>
+                    <p>
+                        @Model.BookDescription
+                    </p>
+                </div>
+            </div>
+            <div class="OtherInfo">
+                <h5>Подробная информация о книге:</h5>
+                <p>Издательство: @Model.Publisher.ShortNamePublisher</p>
+                <p>Год издания:	@Model.YearPublishing</p>
+                <p>Страниц: @Model.NumberPages</p>
+                <p>Переплет: @Model.Binding.NameBinding</p>
+                <p>Формат: @Model.Format.NameFormat</p>
+                <p>Вес: @Model.BookWeight г</p>
+                <p>Возрастные ограничения: @Model.AgeLimit+</p>
+                <p>Изготовитель: @Model.Publisher.FullNamePublisher @Model.Publisher.AddressPublisher</p>
+                <p>Импортер: @Model.Importer.FullNameImporter @Model.Importer.AddressImpoter</p>
+                <p>Доставка: Самовывоз — бесплатно. Курьером по Минску — 7,00 руб., бесплатно при заказе от 80,00 руб. Срок доставки устанавливается после оформления заказа.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Area singlpage end -->

@@ -1331,3 +1331,294 @@ footer .inner-content p a {
 			background-color: #121212;
 			color: #fff;
 		}
+/*single Page styles*/
+.singlproduct {
+	width: 100%;
+}
+.mainInfoArea {
+	display: flex;
+	overflow-x: auto;
+	overflow-y: hidden;
+}
+
+.imageBook image {
+	text-align: right;
+}
+
+.infoBook {
+	margin-left: 10px;
+}
+
+@media (max-width:500px) {
+	.mainInfoArea {
+		display: inline;
+	}
+
+	.singlproduct {
+		width: 100%;
+	}
+
+	.imageBook image {
+		text-align: left;
+	}
+}
+
+.infoBook button.filled-button {
+	margin-top: 10px;
+	background-color: #f33f3f;
+	color: #fff;
+	font-size: 14px;
+	text-transform: capitalize;
+	font-weight: 300;
+	padding: 10px 20px;
+	border-radius: 5px;
+	display: inline-block;
+	transition: all 0.3s;
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
+
+	.infoBook button.filled-button:hover {
+		background-color: #121212;
+		color: #fff;
+	}
+
+.infoBook p {
+	margin-top: 20px;
+	text-align: justify;
+	font-size: 18px;
+}
+
+.hederInfo {
+	border-bottom: 1px solid rgb(180, 179, 179);
+}
+
+	.hederInfo h1 {
+		font-size: 32px;
+		font-weight: bold;
+	}
+
+.OtherInfo {
+	margin-top: 20px;
+}
+/*Profile styles*/
+/* Dropdown Button */
+.dropbtn {
+	background-color: #f33f3f;
+	color: white;
+	padding: 16px;
+	font-size: 16px;
+	border: none;
+	border-radius: 5px;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+	position: relative;
+	display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #f1f1f1;
+	width: 100%;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+	border-radius: 5px;
+}
+
+	/* Links inside the dropdown */
+	.dropdown-content a {
+		color: black;
+		padding: 12px 16px;
+		text-decoration: none;
+		display: block;
+	}
+
+		/* Change color of dropdown links on hover */
+		.dropdown-content a:hover {
+			background-color: #ddd;
+		}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+	background-color: #121212;
+}
+
+.ShopKart {
+	margin-top: 30px;
+}
+
+	.ShopKart a.btn {
+		margin-top: 10px;
+		background-color: #f33f3f;
+		color: #fff;
+		font-size: 14px;
+		text-transform: capitalize;
+		font-weight: 300;
+		padding: 10px 20px;
+		border-radius: 5px;
+		display: inline-block;
+		transition: all 0.3s;
+		border: none;
+		outline: none;
+		cursor: pointer;
+	}
+
+	.ShopKart a.filled-button:hover {
+		background-color: #121212;
+		color: #fff;
+	}
+
+
+/*Making an order Style*/
+/* -----  Выравнивание по середине  -----*/
+.dws-wrapper {
+	justify-content: center;
+	align-items: center;
+}
+
+.dws-form {
+	background-color: rgba(255, 255, 255, 0.2);
+	padding: 10px;
+}
+
+	.dws-form ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.dws-form input {
+		display: block;
+		width: 100%;
+	}
+
+.tab-form {
+	background-color: #fff;
+	display: none;
+	padding: 30px 20px 20px;
+}
+
+	.tab-form.active,
+	#tab-1:checked ~ #form-1,
+	#tab-2:checked ~ #form-2 {
+		display: block;
+	}
+
+label.tab {
+	color: #a8a8a8;
+	
+	font-weight: 600;
+	padding: 15px;
+	display: inline-block;
+	border-radius: 3px 3px 0 0;
+	margin-bottom: -1px;
+	cursor: pointer;
+}
+
+	label.tab.active,
+	input[name="tabs"]:checked + label {
+		background-color: rgb(255, 255, 255);
+		color: #f33f3f;
+	}
+
+input[name="tabs"] {
+	display: none;
+}
+
+/* Формы */
+.tab-form input {
+	font-size: 16px;
+	width: 50%;
+	height: 44px;
+	display: inline-block;
+	line-height: 42px;
+	border: 1px solid rgb(170, 170, 170);
+	border-radius: 5px;
+	text-align: center;
+	margin-top: 10px;
+}
+
+	.tab-form input:focus {
+		box-shadow: none;
+		border: 1px solid rgb(0, 0, 0);
+	}
+
+.tab-form select {
+	font-size: 16px;
+	width: 50%;
+	height: 44px;
+	display: inline-block;
+	line-height: 42px;
+	border: 1px solid rgb(170, 170, 170);
+	border-radius: 5px;
+	text-align: center;
+	margin-top: 10px;
+}
+
+	.tab-form select:focus {
+		box-shadow: none;
+		border: 1px solid rgb(0, 0, 0);
+	}
+
+.tab-form textarea {
+	font-size: 16px;
+	width: 50%;
+	height: 300px;
+	display: inline-block;
+	line-height: 42px;
+	border: 1px solid rgb(170, 170, 170);
+	border-radius: 5px;
+	text-align: center;
+	margin-top: 10px;
+}
+
+	.tab-form textarea:focus {
+		box-shadow: none;
+		border: 1px solid rgb(0, 0, 0);
+	}
+
+.tab-form label {
+	display: block;
+	padding: 10px;
+	margin-top: 20px;
+	margin-bottom: -15px;
+	font-size: 14px;
+}
+
+.tab-form button.filled-button {
+	margin-top: 10px;
+	background-color: #f33f3f;
+	color: #fff;
+	font-size: 14px;
+	text-transform: capitalize;
+	font-weight: 300;
+	padding: 10px 20px;
+	border-radius: 5px;
+	display: block;
+	transition: all 0.3s;
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
+
+	.tab-form button.filled-button:hover {
+		background-color: #121212;
+		color: #fff;
+	}
+   
+   
+   
+   
+   
+ 
