@@ -1363,7 +1363,7 @@ footer .inner-content p a {
 	}
 }
 
-.infoBook button.filled-button {
+.infoBook a.filled-button {
 	margin-top: 10px;
 	background-color: #f33f3f;
 	color: #fff;
@@ -1379,7 +1379,7 @@ footer .inner-content p a {
 	cursor: pointer;
 }
 
-	.infoBook button.filled-button:hover {
+	.infoBook a.filled-button:hover {
 		background-color: #121212;
 		color: #fff;
 	}

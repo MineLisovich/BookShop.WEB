@@ -50,7 +50,7 @@
                                             <h6>@item.Price руб.</h6>
                                             <p>@item.BookDescription</p>
 
-                                            <span><a href="">В корзину</a></span>
+                                            <span><a asp-area="user" asp-controller="ShopingCarts" asp-action="Add" asp-route-id="@item.Id">В корзину</a></span>
                                         </div>
                                     </div>
                                 </div>

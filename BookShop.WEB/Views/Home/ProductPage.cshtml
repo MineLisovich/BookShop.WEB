@@ -27,7 +27,7 @@
                         <p>@Model.TheAuthors.FullName, @Model.YearPublishing</p>
                     </div>
                     <h1>@Model.Price руб</h1>
-                    <button type="submit" id="form-submit" class="filled-button">Добавить в корзину!</button>
+                    <a asp-area="user" asp-controller="ShopingCarts" asp-action="Add" asp-route-id="@Model.Id" class="filled-button">Добавить в корзину!</a>
                     <p>
                         @Model.BookDescription
                     </p>

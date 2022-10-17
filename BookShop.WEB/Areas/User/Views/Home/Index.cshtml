@@ -1,4 +1,5 @@
-﻿ 
+﻿ @model BookShop.WEB.Models.UserProfilViewModel
+
 <div class="page-heading contact-heading header-text">
     <div class="container">
         <div class="row">
@@ -11,4 +12,66 @@
         </div>
     </div>
 </div>
-User area
+<!-- Area profile -->
+<div class="products">
+    <div class="container">
+        <div class="dropdown">
+            <button class="dropbtn">Привет! @Model.IdentityUser.UserName <img src="~/images/1.png"></button>
+            <div class="dropdown-content">
+                <a  asp-area="user" asp-controller="User" asp-action="Edit" asp-route-id="@Model.IdentityUser.Id">Изменить данные</a>
+                <a href="#">Изменить пароль</a>
+                <a asp-area="" asp-controller="Account" asp-action="Logout">Выйти</a>
+            </div>
+        </div>
+        <div class="ShopKart">
+            <h1>Корзина:</h1>
+            @if(Model.shoppingCarts.Where(u=>u.UserId == Model.IdentityUser.Id).Count()>0)
+            {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Наименование игры</th>
+                        <th>Цена</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.shoppingCarts.Where(u => u.UserId == Model.IdentityUser.Id))
+                    {
+                        <tr>
+                            <td>@item.Books.NameBook</td>
+                            <td>@item.TotalPrice</td>
+                                <td> <a asp-area="user" asp-controller="ShopingCarts" asp-action="Delete" asp-route-id="@item.Id" class="btn">Удалить</a></td>
+                        </tr>
+                    }
+
+
+                </tbody>
+            </table>
+            <div>
+                <div><h5>Итого: @Model.FinalPrice руб.</h5></div>
+                <a class="btn">Оплатить</a>
+            </div>
+            }
+            @if (Model.shoppingCarts.Where(u => u.UserId == Model.IdentityUser.Id).Count() == 0)
+            {
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Наименование игры</th>
+                            <th>Цена</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td colspan ="2"><h1>В корзине пусто</h1></td><tr>
+                    </tbody>
+                </table>
+        
+            }
+            
+
+        </div>
+    </div>
+</div>
+<!-- Area profile end -->
