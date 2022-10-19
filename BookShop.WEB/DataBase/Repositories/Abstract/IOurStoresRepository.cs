@@ -11,6 +11,7 @@ namespace BookShop.WEB.DataBase.Repositories.Abstract
     {
         IQueryable<OurStores> GetAll();
         OurStores GetById(int id);
+        OurStores GetByName(string AdressStore);
         void SaveOurStores(OurStores entity);
         void DeleteOurStores(int id);
     }

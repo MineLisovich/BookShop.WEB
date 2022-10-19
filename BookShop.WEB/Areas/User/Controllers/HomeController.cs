@@ -34,5 +34,9 @@ namespace BookShop.WEB.Areas.User.Controllers
             };
             return View(viewModel);
         }
+        public IActionResult OrderProcessed()
+        { 
+            return View();
+        }
     }
 }

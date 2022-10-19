@@ -20,9 +20,9 @@ namespace BookShop.WEB.DataBase.Entities
         [Required]
         public int Price { get; set; }
 
-        [Required]
+        [Required (ErrorMessage ="Введите свой адрес")]
         public string AdressDelivery { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Укажите свой моб. телефон")]
         public string PhoneUser { get; set; }
         [Required]
         public DateTime DataDlivery { get; set; }

@@ -21,7 +21,10 @@ namespace BookShop.WEB.DataBase.Repositories.EF
         {
             return _dbContext.OurStores.FirstOrDefault(x => x.Id == Id);
         }
-
+        public OurStores GetByName(string AdressStore)
+        {
+            return _dbContext.OurStores.FirstOrDefault(x => x.AdressStore == AdressStore);
+        }
         public void SaveOurStores(OurStores entity)
         {
             if (entity.Id == default)

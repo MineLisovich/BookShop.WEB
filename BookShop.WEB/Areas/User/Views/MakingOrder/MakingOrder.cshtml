@@ -1,0 +1,80 @@
+﻿@model BookShop.WEB.Models.UserProfilViewModel
+
+<!-- Page Content -->
+<div class="page-heading products-heading header-text">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-content">
+                    <h4>Ваш заказ</h4>
+                    <h2>Давайте оформим Ваш заказ!</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--end Page Content -->
+<!-- Area making an order -->
+<div class="products">
+    <div class="container">
+        <div class="dws-wrapper">
+            <div class="dws-form">
+                <!-- Вкладки на CSS -->
+                <input type="radio" id="tab-1" name="tabs" checked>
+                <label class="tab" for="tab-1" title="Вкладка 1">Самовывоз</label>
+
+                <input type="radio" name="tabs" id="tab-2">
+                <label class="tab" for="tab-2" title="Вкладка 2">Доставка</label>
+
+                <form asp-area="user" asp-controller="MakingOrder" asp-action="MakingOrderPickup" method="post" id="form-1" class="tab-form">
+                    <label>У вас в корзине:</label>
+                    @if (Model.shoppingCarts.Where(u => u.UserId == Model.IdentityUser.Id).Count() > 0)
+                    {
+                        @foreach (var item in Model.shoppingCarts.Where(u => u.UserId == Model.IdentityUser.Id))
+                        {
+                            <label><i>@item.Books.NameBook</i></label>
+                        }
+                    }
+                    
+                    <h5>Итого: @Model.FinalPrice руб.</h5>
+                    <label>Выберите магазин</label>
+                    <select asp-for="OurStores.AdressStore">
+                        @foreach (SelectListItem option in ViewBag.OurStoresList)
+                        {
+                            <option value="@option.Value">@option.Text</option>
+                        }
+                    </select>
+                    <label>Выберите предпочитаемую дату самовывоза</label>
+                    <input asp-for="Pickup.DateIssueOrder" type="date" value="today" />
+                    <span style="color:red" asp-validation-for="Pickup.DateIssueOrder"></span>
+                    <button type="submit" id="form-submit" class="filled-button">Оформить заказ</button>
+                    <label>(После оформления заказа с вами свяжутся для уточнения времени)</label>
+                </form>
+
+                <form asp-area="user" asp-controller="MakingOrder" asp-action="MakingOrderDelivery" method="post" id="form-2" class="tab-form">
+                    <label>У вас в корзине:</label>
+                    @if (Model.shoppingCarts.Where(u => u.UserId == Model.IdentityUser.Id).Count() > 0)
+                    {
+                        @foreach (var item in Model.shoppingCarts.Where(u => u.UserId == Model.IdentityUser.Id))
+                        {
+                            <label><i>@item.Books.NameBook</i></label>
+                        }
+                    }
+                    <h5>Итого: @Model.FinalPrice руб.</h5>
+                    <input asp-for ="Delivery.AdressDelivery" type="text" placeholder="Введите ваш адрес" />
+                    <span style="color:red" asp-validation-for="Delivery.AdressDelivery"></span>
+                    <input asp-for="Delivery.PhoneUser" type="text" placeholder="Введите ваш номер телефона" />
+                    <span style="color:red" asp-validation-for="Delivery.PhoneUser"></span>
+                    <label>Выберите предпочитаемую дату доствки</label>
+                    <input asp-for="Delivery.DataDlivery" type="date" value="today" />
+                    <span style="color:red" asp-validation-for="Delivery.DataDlivery"></span>
+                    <button type="submit" id="form-submit" class="filled-button">Оформить заказ</button>
+                    <label>(После оформления заказа с вами свяжутся для уточнения времени доставки)</label>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Area making an order end -->

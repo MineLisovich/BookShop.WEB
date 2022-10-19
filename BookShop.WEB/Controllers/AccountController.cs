@@ -12,10 +12,12 @@ namespace BookShop.WEB.Controllers
     {
         private readonly UserManager<IdentityUser> userManager;
         private readonly SignInManager<IdentityUser> signInManager;
+       
         public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
+            
         }
 
         // Регистрация на сайте
@@ -82,6 +84,8 @@ namespace BookShop.WEB.Controllers
             { 
                 
                 IdentityUser userByName = await userManager.FindByNameAsync(model.UserName);
+
+                
                 if ( userByName!=null)
                 {
                     await signInManager.SignOutAsync();
@@ -89,6 +93,7 @@ namespace BookShop.WEB.Controllers
                    Microsoft.AspNetCore.Identity.SignInResult resultByName = await signInManager.PasswordSignInAsync(userByName.UserName, model.Password, model.RememberMe, false);
                     if (resultByName.Succeeded)
                     {
+                       
                         return Redirect(returnUrl ?? "/Home/Index");
                     }
                     ModelState.AddModelError(nameof(LoginViewModel.UserName), "Неверный логин или пароль");
