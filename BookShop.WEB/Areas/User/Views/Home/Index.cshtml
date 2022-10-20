@@ -19,7 +19,7 @@
             <button class="dropbtn">Привет! @Model.IdentityUser.UserName <img src="~/images/1.png"></button>
             <div class="dropdown-content">
                 <a  asp-area="user" asp-controller="User" asp-action="Edit" asp-route-id="@Model.IdentityUser.Id">Изменить данные</a>
-                <a href="#">Изменить пароль</a>
+                <a asp-area="" asp-controller="Account" asp-action="ForgotPassword">Изменить пароль</a>
                 <a asp-area="" asp-controller="Account" asp-action="Logout">Выйти</a>
             </div>
         </div>

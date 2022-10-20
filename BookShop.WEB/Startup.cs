@@ -49,6 +49,7 @@ namespace BookShop.WEB
             services.AddTransient<IShoppingCartRepository,EFShoppingCartRepository>();
             services.AddTransient<ITheAuthorsRepository, EFTheAuthorsRepository>();
             services.AddTransient<DataManager>();
+            services.AddTransient<EmailService>();
 
             //Подключение БД
             services.AddDbContext<Context>(x => x.UseSqlServer(Config.ConnectionString));

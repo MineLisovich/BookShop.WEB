@@ -1,6 +1,7 @@
 ﻿using BookShop.WEB.DataBase;
 using BookShop.WEB.DataBase.Entities;
 using BookShop.WEB.Models;
+using BookShop.WEB.Service;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -64,9 +65,21 @@ namespace BookShop.WEB.Controllers
             };
             return View(viewModel);
         }
+        [HttpGet]
         public IActionResult Contacts() 
         { 
             return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> Contacts(FeedbackViewModel viewModel)
+        {
+            EmailService emailService = new EmailService();
+            if (viewModel.Email !=null && viewModel.Message != null)
+            {
+                await emailService.SendEmailAsync("vita.bu@mail.ru", viewModel.Email, viewModel.Message);
+                return View("MeesageSent");
+            }
+            return View(viewModel);
         }
 
         [HttpGet]

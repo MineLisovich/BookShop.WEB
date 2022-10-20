@@ -1648,7 +1648,14 @@ input[name="tabs"] {
 			background-color: #121212;
 			color: #fff;
 		}
-   
-   
-   
- 
+
+
+
+.ResetPass {
+	width: auto;
+	padding: 10px;
+	margin-top: 20px;
+	margin: auto;
+	text-align: center;
+	border-radius: 12px;
+}
