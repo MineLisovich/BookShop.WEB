@@ -25,7 +25,7 @@
             <span style="color:red" asp-validation-for="Email"></span>
             <input asp-for="Password" type="password" placeholder="Пароль" />
             <span style="color:red" asp-validation-for="Password"></span>
-            <p>В пароле должно быть:<br>1)Хотя бы одна цифра<br>2)Хотя бы одна заглавная буква<br>3)Минимальная длина пароля 8 символов</p>
+            <p>В пароле должно быть:<br>1)Хотя бы одна цифра<br>2)Хотя бы одина прописная буква<br>3)Хотя бы одна заглавная буква<br>4)Минимальная длина пароля 8 символов</p>
             <button type="submit" id="form-submit" class="filled-button">Зарегистрироваться</button>
         </form>
         <p>Уже есть аккаунт? <a asp-area="" asp-controller="Account" asp-action="Login">Войти</a></p>
