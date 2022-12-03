@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BookShop.WEB.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20221008200759_bookshopDB")]
-    partial class bookshopDB
+    [Migration("20221203114014__migrationBD")]
+    partial class _migrationBD
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -98,7 +98,6 @@ namespace BookShop.WEB.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("TitleNameImage")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("YearPublishing")
@@ -126,18 +125,290 @@ namespace BookShop.WEB.Migrations
                             Id = 1,
                             AgeLimit = 12,
                             Bindingid = 1,
-                            BookDescription = "Тут будет описание книги",
-                            BookWeight = 456,
+                            BookDescription = "Жизнь, творческий путь, идейные искания Л.Н.Толстого по-прежнему увлекают умы наших современников, которые пытаются понять саму сущность творчества писателя и его учения.\"Война и мир\" - вершина творчества Л.Н.Толстого, как никакое другое произведение писателя отражает глубину его мироощущения и философии. Эта книга из разряда вечных, потому что она обо всем - о жизни и смерти, о любви и чести, о мужестве и героизме, о славе и подвиге, о войне и мире. Самый известный во всем мире роман гениального писателя вот уже третье столетие заставляет читателей сопереживать героям произведения. Роман о русской душе, о русском укладе жизни, о вечных вопросах, которые приходится решать каждому человеку наедине с собой. Все жизненные перипетии героев, происходящие на фоне исторических событий, произошедших в начале ХIХ века с Россией, на фоне кровавых событий войны 1812 года, обретают емкий философский смысл. Роман по глубине и охвату событий до сих пор стоит на первом месте во всей мировой...",
+                            BookWeight = 1020,
                             DateAddSite = new DateTime(2022, 10, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Formatid = 1,
-                            Ganresid = 1,
+                            Formatid = 3,
+                            Ganresid = 4,
                             Importerid = 1,
-                            NameBook = "Книга 1",
-                            NumberPages = 134,
-                            Price = 12,
+                            NameBook = "Война и мир (в 2 томах)",
+                            NumberPages = 1406,
+                            Price = 25,
                             Publisherid = 1,
                             TheAuthorsid = 1,
-                            TitleNameImage = "Book1.jpg",
+                            TitleNameImage = "lev_tolstoj_vojna_i_mir.jpg",
+                            YearPublishing = new DateTime(2014, 2, 22, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AgeLimit = 16,
+                            Bindingid = 1,
+                            BookDescription = "\"Анна Каренина\" – лучший роман о женщине, написанный в XIX веке. По словам Ф. М. Достоевского, \"Анна Каренина\" поразила современников \"не только вседневностью содержания, но и огромной психологической разработкой души человеческой, страшной глубиной и силой\". Уже к началу 1900-х годов роман Толстого был переведен на многие языки мира, а в настоящее время входит в золотой фонд мировой литературы.",
+                            BookWeight = 571,
+                            DateAddSite = new DateTime(2022, 10, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Formatid = 3,
+                            Ganresid = 4,
+                            Importerid = 1,
+                            NameBook = "Анна Каренина",
+                            NumberPages = 864,
+                            Price = 15,
+                            Publisherid = 2,
+                            TheAuthorsid = 1,
+                            TitleNameImage = "Lev_Tolstoy_Anna__Karen__ina.jpg",
+                            YearPublishing = new DateTime(2012, 2, 22, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 3,
+                            AgeLimit = 12,
+                            Bindingid = 1,
+                            BookDescription = "Повесть \"Детство\", впервые опубликованная в 1852 году в журнале \"Современник\", стала литературным дебютом Л. Н. Толстого, выдающегося русского писателя и мыслителя. Опираясь на детские воспоминания и дневниковые записи, Толстой, однако, писал не автобиографию и не мемуары. Автор пытался раскрыть универсальные законы развития человеческой души, ее загадочную изменчивую \"диалектику\", \"высказать такие тайны, которые нельзя сказать простым словом\", что как раз и составляет главную цель искусства, как считал автор. Впоследствии повесть \"Детство\" вместе с \"Отрочеством\" (1852-1854) и \"Юностью\" (1855-1857) соединились в трилогию и стали \"не только копилкой будущих литературных замыслов, но и некой абсолютной точкой на пути, раз и навсегда открытым континентом на карте толстовского мира\" (И. Н. Сухих).",
+                            BookWeight = 322,
+                            DateAddSite = new DateTime(2022, 10, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Formatid = 3,
+                            Ganresid = 8,
+                            Importerid = 1,
+                            NameBook = "Детство. Отрочество. Юность",
+                            NumberPages = 416,
+                            Price = 24,
+                            Publisherid = 3,
+                            TheAuthorsid = 1,
+                            TitleNameImage = "lev_tolstoj_otchestvo.jpg",
+                            YearPublishing = new DateTime(2022, 2, 22, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 4,
+                            AgeLimit = 16,
+                            Bindingid = 1,
+                            BookDescription = "В книгу вошли произведения У. Шекспира, которые изучаются в школе. \"Ромео и Джульетта\" – трагедия, рассказывающая о любви юноши и девушки из двух враждующих старинных родов – Монтекки и Капулетти, и одна из самых знаменитых пьес в мировой литературе \"Гамлет\".",
+                            BookWeight = 340,
+                            DateAddSite = new DateTime(2022, 10, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Formatid = 3,
+                            Ganresid = 8,
+                            Importerid = 1,
+                            NameBook = "Ромео и Джульетта. Гамлет",
+                            NumberPages = 352,
+                            Price = 15,
+                            Publisherid = 1,
+                            TheAuthorsid = 2,
+                            TitleNameImage = "shekspir_romeo_djyletta_gamlet.jpg",
+                            YearPublishing = new DateTime(2020, 2, 22, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 5,
+                            AgeLimit = 16,
+                            Bindingid = 1,
+                            BookDescription = "Одно из \"краеугольных\" произведений русской и мировой литературы, включенный во все школьные и университетские программы, неоднократно экранизированный роман Достоевского \"Преступление и наказание\" ставит перед читателем важнейшие нравственно-мировоззренческие вопросы – о вере, совести, грехе и об искуплении через страдание. Опровержение преступной \"идеи-страсти\", \"безобразной мечты\", завладевшей умом Родиона Раскольникова в самом \"умышленном\" и \"фантастическом\" городе на свете, составляет основное содержание этой сложнейшей, соединившей в себе несколько различных жанров книги. Задуманный как \"психологический отчет одного преступления\", роман Достоевского предстал перед читателем грандиозным художественно-философским исследованием человеческой природы, христианской трагедией о смерти и воскресении души.",
+                            BookWeight = 430,
+                            DateAddSite = new DateTime(2022, 10, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Formatid = 3,
+                            Ganresid = 4,
+                            Importerid = 1,
+                            NameBook = "Преступление и наказание",
+                            NumberPages = 608,
+                            Price = 14,
+                            Publisherid = 4,
+                            TheAuthorsid = 5,
+                            TitleNameImage = "dostoevski_prestyplenie_nakazanie.jpg",
+                            YearPublishing = new DateTime(2019, 2, 22, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 6,
+                            AgeLimit = 16,
+                            Bindingid = 1,
+                            BookDescription = @"""Главная идея... – писал Ф. М. Достоевский о своем романе ""Идиот"", – изобразить положительно-прекрасного человека. Труднее этого нет ничего на свете..."" Не для того ли писатель явил миру ""князя-Христа"", чтобы мы не забывали: ""Страдание есть главнейший и, может быть, единственный закон бытия всего человечества"".
+
+Каждое новое поколение по-своему воспринимает классику и пытается дать собственные ответы на вечные вопросы бытия. Об этом свидетельствуют и известные экранизации романа, его сценические версии. В России запоминающиеся образы князя Мышкина создали Ю. Яковлев, И. Смоктуновский, Е. Миронов.",
+                            BookWeight = 450,
+                            DateAddSite = new DateTime(2022, 10, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Formatid = 3,
+                            Ganresid = 4,
+                            Importerid = 1,
+                            NameBook = "Идиот",
+                            NumberPages = 640,
+                            Price = 15,
+                            Publisherid = 1,
+                            TheAuthorsid = 5,
+                            TitleNameImage = "dostoevski_idiot.jpg",
+                            YearPublishing = new DateTime(2012, 2, 22, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 7,
+                            AgeLimit = 16,
+                            Bindingid = 1,
+                            BookDescription = "Последний, самый объемный и один из наиболее известных романов Ф. М. Достоевского обращает читателя к вневременным нравственно-философским вопросам о грехе, воздаянии, сострадании и милосердии. Книга, которую сам писатель определил как \"роман о богохульстве и опровержении его\", явилась попыткой \"решить вопрос о человеке\", \"разгадать тайну\" человека, что, по Достоевскому, означало \"решить вопрос о Боге\". Сквозь призму истории провинциальной семьи Карамазовых автор повествует об извечной борьбе Божественного и дьявольского в человеческой душе. Один из самых глубоких в мировой литературе опытов отражения христианского сознания, \"Братья Карамазовы\" стали в ХХ веке объектом парадоксальных философских и психоаналитических интерпретаций.",
+                            BookWeight = 560,
+                            DateAddSite = new DateTime(2022, 10, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Formatid = 3,
+                            Ganresid = 4,
+                            Importerid = 1,
+                            NameBook = "Братья Карамазовы",
+                            NumberPages = 832,
+                            Price = 15,
+                            Publisherid = 1,
+                            TheAuthorsid = 5,
+                            TitleNameImage = "dostoevski_bratya_karamazobi.jpg",
+                            YearPublishing = new DateTime(2013, 2, 22, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 8,
+                            AgeLimit = 6,
+                            Bindingid = 1,
+                            BookDescription = "В книгу вошли известнейшие и всеми любимые рассказы великого русского писателя Антона Павловича Чехова: \"Каштанка\", \"Пересолил\", \"Лошадиная фамилия\", \"Толстый и тонкий\" и другие. Чехов умел сочетать весёлое и грустное, и удивительно проникновенно говорить о самых обыкновенных вещах. Каждый его рассказ – целый мир, который умещается всего на нескольких страницах.",
+                            BookWeight = 200,
+                            DateAddSite = new DateTime(2022, 10, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Formatid = 3,
+                            Ganresid = 3,
+                            Importerid = 1,
+                            NameBook = "Каштанка",
+                            NumberPages = 128,
+                            Price = 9,
+                            Publisherid = 1,
+                            TheAuthorsid = 8,
+                            TitleNameImage = "chehov_kashtanka.jpg",
+                            YearPublishing = new DateTime(2016, 2, 22, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 9,
+                            AgeLimit = 16,
+                            Bindingid = 2,
+                            BookDescription = "Где та грань, которая отделяет здорового человека от больного, особенно если речь идет о нервных заболеваниях, ведь избежать нервные потрясения или перегрузки практически невозможно? Антон Чехов будучи сам врачом во многих своих произведениях рассказывает истории людей, незаметно переходящих эту грань, людей, которых убивает рутина, серые будни, и будучи чрезвычайно чувствительными и слабыми они ломаются под давлением обыденности и неспособности что-то противопоставить ей.",
+                            BookWeight = 170,
+                            DateAddSite = new DateTime(2022, 10, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Formatid = 4,
+                            Ganresid = 3,
+                            Importerid = 1,
+                            NameBook = "Палата №6",
+                            NumberPages = 352,
+                            Price = 9,
+                            Publisherid = 1,
+                            TheAuthorsid = 8,
+                            TitleNameImage = "chehov_palata6.jpg",
+                            YearPublishing = new DateTime(2012, 2, 22, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 10,
+                            AgeLimit = 12,
+                            Bindingid = 1,
+                            BookDescription = "Драматургия искусство особое. Как известно, современники Чехова в восприятии его пьес разделились на два лагеря. Горячие поклонники Художественного театра наталкивались на вежливое равнодушие или откровенную неприязнь даже тех, кто был весьма расположен к Чехову-прозаику. \"Чехов несомненный талант, но пьесы его плохие. В них не решаются вопросы, нет содержания\", не раз повторял в беседах Л. Толстой. \"Пьесы его далеко не лучшее из написанного им...\" говорил И. Бунин. В XX веке многое изменилось. С развитием режиссерского театра драма как текст утратила свое значение она живет и умирает в спектакле. И только немногие пьесы наверное, они и называются классикой необходимо не только видеть на сцене, но и читать.",
+                            BookWeight = 275,
+                            DateAddSite = new DateTime(2022, 10, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Formatid = 3,
+                            Ganresid = 8,
+                            Importerid = 2,
+                            NameBook = "Вишневый сад",
+                            NumberPages = 320,
+                            Price = 15,
+                            Publisherid = 2,
+                            TheAuthorsid = 8,
+                            TitleNameImage = "chehov_vishevi_sad.jpg",
+                            YearPublishing = new DateTime(2021, 2, 22, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 11,
+                            AgeLimit = 18,
+                            Bindingid = 1,
+                            BookDescription = @"Сорокалетний литератор и рантье, перебравшись из Парижа в Америку, влюбляется в двенадцатилетнюю провинциальную школьницу, стремление обладать которой становится его губительной манией. Принесшая Владимиру Набокову (1899-1977) мировую известность, технически одна из наиболее совершенных его книг – дерзкая, глубокая, остроумная, пронзительная и живая, – ""Лолита"" (1955) неизменно делит читателей на две категории: восхищенных ценителей яркого искусства и всех прочих.
+
+В середине 60‑х годов Набоков создал русскую версию своей любимой книги, внеся в нее различные дополнения и уточнения. Русское издание увидело свет в Нью‑Йорке в 1967 году. Несмотря на запрет, продлившийся до 1989 года, ""Лолита"" получила в СССР широкое распространение и оказала значительное влияние на всю последующую русскую литературу.",
+                            BookWeight = 500,
+                            DateAddSite = new DateTime(2022, 10, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Formatid = 3,
+                            Ganresid = 4,
+                            Importerid = 1,
+                            NameBook = "Лолита",
+                            NumberPages = 544,
+                            Price = 28,
+                            Publisherid = 2,
+                            TheAuthorsid = 4,
+                            TitleNameImage = "nabokov_lolita.jpg",
+                            YearPublishing = new DateTime(2021, 2, 22, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 12,
+                            AgeLimit = 16,
+                            Bindingid = 1,
+                            BookDescription = "\"Защита Лужина\" (1929) – вершинное достижение Владимира Набокова 20‑х годов, его первая большая творческая удача, принесшая ему славу лучшего молодого писателя русской эмиграции. Показав, по словам Глеба Струве, \"колдовское владение темой и материалом\", Набоков этим романом открыл в русской литературе новую яркую страницу. Гениальный шахматист Александр Лужин, живущий скорее в мире своего отвлеченного и строгого искусства, чем в реальном Берлине, обнаруживает то, что можно назвать комбинаторным началом бытия. Безуспешно пытаясь разгадать \"ходы судьбы\" и прервать их зловещее повторение, он перестает понимать, где кончается игра и начинается сама жизнь, против неумолимых обстоятельств которой он беззащитен.",
+                            BookWeight = 310,
+                            DateAddSite = new DateTime(2022, 10, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Formatid = 3,
+                            Ganresid = 4,
+                            Importerid = 1,
+                            NameBook = "Защита Лужина",
+                            NumberPages = 288,
+                            Price = 24,
+                            Publisherid = 2,
+                            TheAuthorsid = 4,
+                            TitleNameImage = "nabokov_zashita_lyjina.jpg",
+                            YearPublishing = new DateTime(2021, 2, 22, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 13,
+                            AgeLimit = 18,
+                            Bindingid = 1,
+                            BookDescription = "В конце 60-х годов прошлого века живший в Швейцарии знаменитый русский писатель создал на английском языке грандиозное произведение, преобразившее историю американской литературы. Фантастически смелый по замыслу и воплощению, в полной мере отразивший полувековой писательский и научный опыт Владимира Набокова (1899-1977), роман \"Ада, или Отрада\" (1969) не поддается привычным жанровым определениям. Написанный в форме семейной хроники, охватывающей полтора столетия и длинный ряд персонажей, он представляет собой, возможно, самую необычную историю любви из когда-либо изложенных на каком-либо языке.",
+                            BookWeight = 760,
+                            DateAddSite = new DateTime(2022, 10, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Formatid = 3,
+                            Ganresid = 4,
+                            Importerid = 1,
+                            NameBook = "Ада, или Отрада",
+                            NumberPages = 800,
+                            Price = 45,
+                            Publisherid = 3,
+                            TheAuthorsid = 4,
+                            TitleNameImage = "nabokov_ada_otrada.jpg",
+                            YearPublishing = new DateTime(2022, 2, 22, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 14,
+                            AgeLimit = 16,
+                            Bindingid = 1,
+                            BookDescription = "\"Дар\" – книга, официально считающаяся \"центральным русскоязычным романом Владимира Набокова\". Во всех возможных отношениях...  Потому что в книге этой интеллектуальная и этическая трагедия русской эмиграции обнажена искренне и жестоко... Потому что непревзойденный \"набоковский язык\" доходит здесь до пределов совершенства – а порой их и превосходит... Потому что \"Дар\" – это шедевр. И комментарии излишни.",
+                            BookWeight = 490,
+                            DateAddSite = new DateTime(2022, 10, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Formatid = 3,
+                            Ganresid = 4,
+                            Importerid = 1,
+                            NameBook = "Дар",
+                            NumberPages = 480,
+                            Price = 30,
+                            Publisherid = 1,
+                            TheAuthorsid = 4,
+                            TitleNameImage = "nabokov_dar.jpg",
+                            YearPublishing = new DateTime(2022, 2, 22, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 15,
+                            AgeLimit = 16,
+                            Bindingid = 1,
+                            BookDescription = @"""Бледный огонь"" (1962) – самое необычное по форме произведение Владимира Набокова, состоящее из эпиграфа, одноименной поэмы в 999 строк, предисловия к ней, обширного комментария и указателя. Обстоятельства сочинения Джоном Шейдом гениальной поэмы в последние недели его жизни преломляются в фантастической призме комментария, составленного загадочным и одиноким поклонником американского поэта Чарльзом Кинботом, наполняющим мир ""Бледного огня"" собственным творческим опытом, воспоминаниями и страхами.
+
+В настоящем издании роман печатается в переводе Веры Набоковой.",
+                            BookWeight = 360,
+                            DateAddSite = new DateTime(2022, 10, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Formatid = 3,
+                            Ganresid = 4,
+                            Importerid = 1,
+                            NameBook = "Бледный огонь",
+                            NumberPages = 368,
+                            Price = 28,
+                            Publisherid = 1,
+                            TheAuthorsid = 4,
+                            TitleNameImage = "nabokov_bledni_ogon.jpg",
                             YearPublishing = new DateTime(2022, 2, 22, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
@@ -601,14 +872,14 @@ namespace BookShop.WEB.Migrations
                         new
                         {
                             Id = "666",
-                            ConcurrencyStamp = "e8fc6dce-bbb8-4d8a-977c-9766e8f2e7c2",
+                            ConcurrencyStamp = "0c4968a4-50f3-4a7e-8129-1077b53172f6",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "333",
-                            ConcurrencyStamp = "a12a1416-c8b0-492f-a925-2bc4245da102",
+                            ConcurrencyStamp = "9eea2856-2ee2-4367-9c38-493d4fd25590",
                             Name = "user",
                             NormalizedName = "USER"
                         });
@@ -707,13 +978,13 @@ namespace BookShop.WEB.Migrations
                         {
                             Id = "696",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "102500ae-156c-4963-ac8f-898f54799f2d",
+                            ConcurrencyStamp = "46d718db-800e-4f5d-a948-a77f94361c5f",
                             Email = "bookshop@mail.ru",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "bookshop@mail.ru",
                             NormalizedUserName = "admin",
-                            PasswordHash = "AQAAAAEAACcQAAAAEOE9DfCi7SoGiUw1OSi7GifPc9dZXIvsUimWWojAZM2q/yV49aWtW81kfEaKVfo1Jw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEDtYV/ksSURwBd/QbXzh7XarfyZc1zA0MU/wYMGi3DfgnWI6zDkL9BMULggPW1X5HA==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -723,13 +994,13 @@ namespace BookShop.WEB.Migrations
                         {
                             Id = "393",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "f09dedf5-8ebf-42a8-ba9d-8b7f5432f61d",
+                            ConcurrencyStamp = "eb1240ed-25f1-4e28-a55a-131e11b19ab6",
                             Email = "user@mail.ru",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "user@mail.ru",
                             NormalizedUserName = "user",
-                            PasswordHash = "AQAAAAEAACcQAAAAEISk/h7EQ6kS5uOv8ePxGwF8xvloczi8ekcxVsilp6Hyzof/WINKcIFJC0V9QhKLPg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEDOmSoSS+xvI7C+xSbpgUPKhRVQgiRiLsogPsMypHthMtUktS0RsoWbXZZI+KZvntg==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
