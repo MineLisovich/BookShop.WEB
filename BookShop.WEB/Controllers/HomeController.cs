@@ -19,28 +19,48 @@ namespace BookShop.WEB.Controllers
     {
         
         private readonly UserManager<IdentityUser> userManager;
+        private readonly RoleManager<IdentityRole> roleManager;
         private readonly DataManager dataManager;
         private readonly Context _db;
-        public HomeController(DataManager dataManager, Context db, UserManager<IdentityUser> userMgr)
+        public HomeController(DataManager dataManager, Context db, UserManager<IdentityUser> userMgr, RoleManager<IdentityRole> roleManager)
         {
             this.dataManager = dataManager;
             _db = db;
             userManager = userMgr;
-
+            this.roleManager = roleManager;
         }
-        public IActionResult Index()
+
+        public async Task <IActionResult> Index()
         {
-            IQueryable<Books> books = _db.Books.Include(b => b.Binding).Include(f => f.Format).Include(g => g.Ganres).Include(i => i.Importer).Include(p => p.Publisher).Include(t => t.TheAuthors);
-            
-            BooksViewModel viewModel = new BooksViewModel
+            BooksViewModel viewModel = new BooksViewModel();
+            var user = await userManager.GetUserAsync(User);
+            if (user != null)
             {
-                Books = books.ToList(),
-            };
+                var role = await userManager.GetRolesAsync(user);
+                viewModel.UserRoles = role;
+            }
+         
+            
+
+            IQueryable<Books> books = _db.Books.Include(b => b.Binding).Include(f => f.Format).Include(g => g.Ganres).Include(i => i.Importer).Include(p => p.Publisher).Include(t => t.TheAuthors);
+
+
+            viewModel.Books = books.ToList();
+               viewModel.IdentityUser = user;
+                
+           
             return View(viewModel);
         }
 
-      public IActionResult Products(string serch, int? author, int? ganre, int? publisher)
+      public async Task <IActionResult> Products(string serch, int? author, int? ganre, int? publisher)
         {
+            BooksViewModel viewModel = new BooksViewModel();
+            var user = await userManager.GetUserAsync(User);
+            if (user != null)
+            {
+                var role = await userManager.GetRolesAsync(user);
+                viewModel.UserRoles = role;
+            }
             IQueryable<Books> books = _db.Books.Include(b => b.Binding).Include(f => f.Format).Include(g => g.Ganres).Include(i => i.Importer).Include(p => p.Publisher).Include(t => t.TheAuthors);
             if (!String.IsNullOrEmpty(serch)) { books = books.Where(n => n.NameBook.Contains(serch)); }
             if (author !=null && author != 0) { books = books.Where(a => a.TheAuthorsid == author); }
@@ -54,21 +74,29 @@ namespace BookShop.WEB.Controllers
             ganres.Insert(0, new Ganres { NameGanre = "Выберите жанр", Id = 0 });
             publishers.Insert(0, new Publisher { ShortNamePublisher = "Выберите Издателя", Id = 0 });
 
-            BooksViewModel viewModel = new BooksViewModel 
-            {
-                Books = books.ToList(),
-                TheAuthorstList = new SelectList(authors, "Id", "FullName"),
-                GanrestList = new SelectList(ganres, "Id", "NameGanre"),
-                PublishertList = new SelectList(publishers, "Id", "ShortNamePublisher"),
-                serch = serch
-            
-            };
+
+
+            viewModel.Books = books.ToList();
+            viewModel.TheAuthorstList = new SelectList(authors, "Id", "FullName");
+            viewModel.GanrestList = new SelectList(ganres, "Id", "NameGanre");
+            viewModel.PublishertList = new SelectList(publishers, "Id", "ShortNamePublisher");
+                viewModel.serch = serch;
+            viewModel.IdentityUser = user;
+
             return View(viewModel);
         }
         [HttpGet]
-        public IActionResult Contacts() 
-        { 
-            return View();
+        public async Task <IActionResult> Contacts() 
+        {
+            FeedbackViewModel viewModel = new FeedbackViewModel();
+            var user = await userManager.GetUserAsync(User);
+            if (user != null)
+            {
+                var role = await userManager.GetRolesAsync(user);
+                viewModel.UserRoles = role;
+            }
+            viewModel.IdentityUser = user;
+            return View(viewModel);
         }
         [HttpPost]
         public async Task<IActionResult> Contacts(FeedbackViewModel viewModel)
@@ -77,28 +105,44 @@ namespace BookShop.WEB.Controllers
             if (viewModel.Email !=null && viewModel.Message != null)
             {
                 await emailService.SendEmailAsync("vita.bu@mail.ru", viewModel.Email, viewModel.Message);
-                return View("MeesageSent");
+                return RedirectToAction(nameof(HomeController.MeesageSent), nameof(HomeController).CutController());
             }
             return View(viewModel);
         }
 
         [HttpGet]
-        public IActionResult ProductPage(int Id)
+        public async Task <IActionResult> ProductPage(int Id)
         {
-            var books = Id == default ? new Books() : dataManager.Books.GetById(Id);
-            var authors = dataManager.TheAuthors.GetById(books.TheAuthorsid);
-            var binding = dataManager.Binding.GetById(books.Bindingid);
-            var format = dataManager.Format.GetById(books.Formatid);
-            var ganres = dataManager.Ganres.GetById(books.Ganresid);
-            var importer = dataManager.Importer.GetById(books.Importerid);
-            var publisher = dataManager.Publisher.GetById(books.Publisherid);
-            return View(books);
+            BooksViewModel viewModel = new BooksViewModel();
+            var user = await userManager.GetUserAsync(User);
+            if (user != null)
+            {
+                var role = await userManager.GetRolesAsync(user);
+                viewModel.UserRoles = role;
+            }
+            viewModel.IdentityUser = user;
+            IQueryable<Books> books = _db.Books.Include(a => a.TheAuthors).Include(b => b.Binding).Include(f => f.Format).Include(g => g.Ganres).Include(i => i.Importer).Include(p => p.Publisher).Where(b => b.Id == Id);
+            viewModel.Books = books;
+            return View(viewModel); 
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        public async Task<IActionResult> MeesageSent()
+        {
+            BooksViewModel viewModel = new BooksViewModel();
+            var user = await userManager.GetUserAsync(User);
+            if (user != null)
+            {
+                var role = await userManager.GetRolesAsync(user);
+                viewModel.UserRoles = role;
+            }
+            viewModel.IdentityUser = user;
+            return View(viewModel);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -9,7 +10,7 @@
 </head>
 <body>
     @await Html.PartialAsync("PreloaderPartial")
-    @await Html.PartialAsync("HeaderPartial")
+   @* @await Html.PartialAsync("HeaderPartial")*@
     @RenderBody()
     @await Html.PartialAsync("FooterPartial")
     <!-- End footer bottom area -->

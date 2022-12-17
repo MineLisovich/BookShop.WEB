@@ -1,4 +1,67 @@
-﻿@model BookShop.WEB.DataBase.Entities.Books
+﻿@model BookShop.WEB.Models.BooksViewModel
+<!-- Header -->
+<header class="">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><h2>BOOK <em>SHOP</em></h2></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">
+                            Главная
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Products">Каталог</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Contacts">Контакты</a>
+                    </li>
+                    @if (Model.IdentityUser == null)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Account" asp-action="Login">Вход</a>
+                        </li>
+                    }
+                    @if (Model.IdentityUser != null)
+                    {
+                        @foreach (var obj in Model.UserRoles)
+                        {
+                            @if (obj == "user")
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-area="user" asp-controller="Home" asp-action="Index">@Model.IdentityUser.UserName</a>
+                                </li>
+                                <img src="~/images/avatarUser.png" width="50" height="50">
+                                <li class="nav-item">
+
+                                    <a class="nav-link" asp-area="" asp-controller="Account" asp-action="Logout">Выход</a>
+                                </li>
+                            }
+                            @if (obj == "admin")
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-area="Admin" asp-controller="Home" asp-action="Index">@Model.IdentityUser.UserName</a>
+                                </li>
+                                <img src="~/images/avatarAdmin.png" width="50" height="50">
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-area="" asp-controller="Account" asp-action="Logout">Выход</a>
+                                </li>
+                            }
+
+                        }
+                    }
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
 <!-- Page Content -->
 <div class="page-heading products-heading header-text">
     <div class="container">
@@ -14,39 +77,45 @@
 </div>
 <!--end Page Content -->
 <!-- Area singlpage -->
-<div class="products">
-    <div class="container">
+@if (Model.Books.Count() > 0)
+{
+    @foreach (var obj in Model.Books)
+    {
+        <div class="products">
+            <div class="container">
         <div class="singlproductArea">
             <div class="mainInfoArea">
                 <div class="imageBook">
-                    <img src="~/images/bookTitle/@Model.TitleNameImage" alt="">
+                    <img src="~/images/bookTitle/@obj.TitleNameImage" alt="">
                 </div>
                 <div class="infoBook">
                     <div class="hederInfo">
-                        <h1>@Model.NameBook</h1>
-                        <p>@Model.TheAuthors.FullName, @Model.YearPublishing</p>
+                        <h1>@obj.NameBook</h1>
+                        <p>@obj.TheAuthors.FullName, @obj.YearPublishing</p>
                     </div>
-                    <h1>@Model.Price руб</h1>
-                    <a asp-area="user" asp-controller="ShopingCarts" asp-action="Add" asp-route-id="@Model.Id" class="filled-button">Добавить в корзину!</a>
+                    <h1>@obj.Price руб</h1>
+                    <a asp-area="user" asp-controller="ShopingCarts" asp-action="Add" asp-route-id="@obj.Id" class="filled-button">Добавить в корзину!</a>
                     <p>
-                        @Model.BookDescription
+                        @obj.BookDescription
                     </p>
                 </div>
             </div>
             <div class="OtherInfo">
                 <h5>Подробная информация о книге:</h5>
-                <p>Издательство: @Model.Publisher.ShortNamePublisher</p>
-                <p>Год издания:	@Model.YearPublishing</p>
-                <p>Страниц: @Model.NumberPages</p>
-                <p>Переплет: @Model.Binding.NameBinding</p>
-                <p>Формат: @Model.Format.NameFormat</p>
-                <p>Вес: @Model.BookWeight г</p>
-                <p>Возрастные ограничения: @Model.AgeLimit+</p>
-                <p>Изготовитель: @Model.Publisher.FullNamePublisher @Model.Publisher.AddressPublisher</p>
-                <p>Импортер: @Model.Importer.FullNameImporter @Model.Importer.AddressImpoter</p>
+                <p>Издательство: @obj.Publisher.ShortNamePublisher</p>
+                <p>Год издания:	@obj.YearPublishing</p>
+                <p>Страниц: @obj.NumberPages</p>
+                <p>Переплет: @obj.Binding.NameBinding</p>
+                <p>Формат: @obj.Format.NameFormat</p>
+                <p>Вес: @obj.BookWeight г</p>
+                <p>Возрастные ограничения: @obj.AgeLimit+</p>
+                <p>Изготовитель: @obj.Publisher.FullNamePublisher @obj.Publisher.AddressPublisher</p>
+                <p>Импортер: @obj.Importer.FullNameImporter @obj.Importer.AddressImpoter</p>
                 <p>Доставка: Самовывоз — бесплатно. Курьером по Минску — 7,00 руб., бесплатно при заказе от 80,00 руб. Срок доставки устанавливается после оформления заказа.</p>
             </div>
         </div>
     </div>
 </div>
 <!-- Area singlpage end -->
+}
+}

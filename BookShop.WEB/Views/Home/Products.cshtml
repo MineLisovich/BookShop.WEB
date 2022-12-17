@@ -1,4 +1,66 @@
 ﻿@model BookShop.WEB.Models.BooksViewModel
+<!-- Header -->
+<header class="">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><h2>BOOK <em>SHOP</em></h2></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">
+                            Главная
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Products">Каталог</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Contacts">Контакты</a>
+                    </li>
+                    @if (Model.IdentityUser == null)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Account" asp-action="Login">Вход</a>
+                        </li>
+                    }
+                    @if (Model.IdentityUser != null)
+                    {
+                        @foreach (var obj in Model.UserRoles)
+                        {
+                            @if (obj == "user")
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-area="user" asp-controller="Home" asp-action="Index">@Model.IdentityUser.UserName</a>
+                                </li>
+                                <img src="~/images/avatarUser.png" width="50" height="50">
+                                <li class="nav-item">
+
+                                    <a class="nav-link" asp-area="" asp-controller="Account" asp-action="Logout">Выход</a>
+                                </li>
+                            }
+                            @if (obj == "admin")
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-area="Admin" asp-controller="Home" asp-action="Index">@Model.IdentityUser.UserName</a>
+                                </li>
+                                <img src="~/images/avatarAdmin.png" width="50" height="50">
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-area="" asp-controller="Account" asp-action="Logout">Выход</a>
+                                </li>
+                            }
+
+                        }
+                    }
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
 
 <!-- Page Content -->
 <div class="page-heading products-heading header-text">
